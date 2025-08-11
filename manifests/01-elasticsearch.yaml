@@ -20,8 +20,17 @@ spec:
         - containerPort: 9200
           name: http
         env:
-        - name: discovery.type
-          value: single-node
+          - name: discovery.type
+            value: single-node
+          - name: ES_JAVA_OPTS
+            value: "-Xms512m -Xmx512m"
+        resources:
+          requests:
+            memory: 1Gi
+            cpu: 500m
+          limits:
+            memory: 1Gi
+            cpu: 1
         volumeMounts:
         - name: elasticsearch-storage
           mountPath: /usr/share/elasticsearch/data
