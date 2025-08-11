@@ -5,9 +5,12 @@ metadata:
 data:
   filebeat.yml: |
     filebeat.inputs:
-    - type: container
+    - type: filestream
+      enabled: true
       paths:
         - /var/log/containers/*.log
+      parsers:
+        - type: container
     output.elasticsearch:
       hosts: ["elasticsearch:9200"]
 ---
