@@ -10,9 +10,9 @@ data:
       paths:
         - /var/log/containers/*.log
       parsers:
-        - type: container
+        - container: {}
     output.elasticsearch:
-      hosts: ["elasticsearch:9200"]
+      hosts: ["http://elasticsearch:9200"]
 ---
 apiVersion: apps/v1
 kind: DaemonSet
