@@ -34,7 +34,7 @@ spec:
           - name: discovery.seed_hosts
             value: "elasticsearch-0.elasticsearch,elasticsearch-1.elasticsearch,elasticsearch-2.elasticsearch"
           - name: ES_JAVA_OPTS
-            value: "-Xms768m -Xmx768m"
+            value: "-Xms1g -Xmx1g"
           - name: xpack.security.enabled
             value: "false"
         ports:
@@ -44,10 +44,10 @@ spec:
           name: transport
         resources:
           requests:
-            memory: 768Mi
+            memory: 1Gi
             cpu: 300m
           limits:
-            memory: 768Mi
+            memory: 1Gi
             cpu: 500m
         volumeMounts:
         - name: elasticsearch-storage
