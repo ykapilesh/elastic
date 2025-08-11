@@ -34,7 +34,7 @@ spec:
           - name: discovery.seed_hosts
             value: "elasticsearch-0.elasticsearch,elasticsearch-1.elasticsearch,elasticsearch-2.elasticsearch"
           - name: ES_JAVA_OPTS
-            value: "-Xms512m -Xmx512m"
+            value: "-Xms768m -Xmx768m"
           - name: xpack.security.enabled
             value: "false"
         ports:
