@@ -13,6 +13,10 @@ spec:
       labels:
         app: elasticsearch
     spec:
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
       containers:
       - name: elasticsearch
         image: docker.elastic.co/elasticsearch/elasticsearch:9.1.1
@@ -40,11 +44,11 @@ spec:
           name: transport
         resources:
           requests:
-            memory: 1Gi
-            cpu: 500m
+            memory: 512Mi
+            cpu: 300m
           limits:
-            memory: 1Gi
-            cpu: 1
+            memory: 512Mi
+            cpu: 500m
         volumeMounts:
         - name: elasticsearch-storage
           mountPath: /usr/share/elasticsearch/data
