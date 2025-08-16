@@ -33,4 +33,22 @@ spec:
             name: http
           - containerPort: 9300
             name: transport
-
+        volumeMounts:
+          - name: elastic-config
+            mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+            subPath: elasticsearch.yml
+      volumes:
+        - name: elastic-config
+          configMap:
+            name: elasticsearch-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elasticsearch-config
+  namespace: elastic
+data:
+  elasticsearch.yml: |
+    xpack.security.enabled: false
+    xpack.security.http.ssl.enabled: false
+    xpack.security.transport.ssl.enabled: false
