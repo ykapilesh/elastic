@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: elastic-stack
+  name: elastic-light
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/ykapilesh/elastic.git
-    targetRevision: HEAD
+    repoURL: https://github.com/YOUR_GITHUB_USERNAME/elastic-light.git
+    targetRevision: main
     path: manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: logging
+    namespace: elastic
   syncPolicy:
     automated:
       prune: true
