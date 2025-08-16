@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_GITHUB_USERNAME/elastic-light.git
+    repoURL: git@github.com:ykapilesh/elastic.git
     targetRevision: main
     path: manifests
   destination:
